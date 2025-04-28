@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "3b1b4d37-41e3-495a-a246-4cf32eca918d",
+		"name": "Examen Banco Base",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44507568"
+	},
+	"item": [
+		{
+			"name": "transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction save",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "            {\n                \"transactionType\": \"payment\",\n                \"amount\": 1899,\n                \"currency\": \"MXN\",\n                \"description\": \"Compra con tarjeta\",\n                \"status\": \"FINALLY\",\n                \"createdAt\": \"2024-10-09T14:00:00.000Z\",\n                \"accountDetails\": {\n                    \"originator\": {\n                        \"accountNumber\": 9876543210,\n                        \"name\": \"Maria Faria\",\n                        \"bank\": \"Bank A\",\n                        \"typeAccount\": null\n                    },\n                    \"beneficiary\": {\n                        \"accountNumber\": 1234987654,\n                        \"name\": \"Ricardo Mello\",\n                        \"bank\": \"Bank B\",\n                        \"typeAccount\": null\n                    }\n                },\n                \"products\": [\n                    {\n                        \"name\": \"tenis nike sb\",\n                        \"amount\": 1000,\n                        \"currency\": null,\n                        \"productType\": null\n                    }\n                ],\n                \"updateAt\": null,\n                \"lastStatus\": null\n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one transaction",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transaction/680fa3a55addbc68b7859b44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"680fa3a55addbc68b7859b44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one transaction status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transaction/status/680fa3a55addbc68b7859b44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"status",
+						"680fa3a55addbc68b7859b44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update one transaction status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"680fa3a55addbc68b7859b44\",\n            \"status\": \"CREATED\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transaction/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update one transaction trackin status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"680fa3a55addbc68b7859b44\",\n            \"status\": \"CREATED\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transaction/last/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"last",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
