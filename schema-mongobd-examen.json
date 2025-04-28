@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "_id",
+    "accountDetails",
+    "amount",
+    "createdAt",
+    "currency",
+    "description",
+    "products",
+    "status",
+    "transactionType"
+  ],
+  "properties": {
+    "_id": {
+      "$ref": "#/$defs/ObjectId"
+    },
+    "_class": {
+      "type": "string"
+    },
+    "accountDetails": {
+      "type": "object",
+      "required": [
+        "beneficiary",
+        "originator"
+      ],
+      "properties": {
+        "beneficiary": {
+          "type": "object",
+          "required": [
+            "accountNumber",
+            "bank",
+            "name"
+          ],
+          "properties": {
+            "accountNumber": {
+              "type": [
+                "integer",
+                "integer"
+              ]
+            },
+            "bank": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "typeAccount": {
+              "type": "null"
+            }
+          }
+        },
+        "originator": {
+          "type": "object",
+          "required": [
+            "accountNumber",
+            "bank",
+            "name"
+          ],
+          "properties": {
+            "accountNumber": {
+              "type": "integer"
+            },
+            "bank": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "typeAccount": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    },
+    "amount": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/Date"
+        }
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "lastStatus": {
+      "type": "null"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "amount",
+          "name"
+        ],
+        "properties": {
+          "amount": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          },
+          "currency": {
+            "type": "null"
+          },
+          "name": {
+            "type": "string"
+          },
+          "productType": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string"
+    },
+    "transactionType": {
+      "type": "string"
+    },
+    "updateAt": {
+      "type": "null"
+    }
+  },
+  "$defs": {
+    "ObjectId": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        }
+      },
+      "required": [
+        "$oid"
+      ],
+      "additionalProperties": false
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "$date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "$date"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
