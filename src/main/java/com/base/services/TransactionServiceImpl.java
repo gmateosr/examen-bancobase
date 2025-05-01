@@ -25,7 +25,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	private static final Logger log = LogManager.getLogger(TransactionServiceImpl.class);
 	private static final String NOTIFICACION_CHANGE_STATUS = "NOTIFICACION_CHANGE_STATUS";
-	private static final String TRANSACTION_STATUS = "CREATED,VALIDATION,PROGRESS,FINALLY,CANCELLED";
+	private static final String TRANSACTION_STATUS = ",CREATED,VALIDATION,PROGRESS,FINALLY,CANCELLED,";
 	
 	@Autowired
 	TransactionRepository repo;
@@ -161,7 +161,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	
 	private boolean validateUpdateStatus(String statusp) throws ExceptionTransaction {		
-		return TRANSACTION_STATUS.contains(statusp.toUpperCase().concat(","));
+		return TRANSACTION_STATUS.contains(",".concat(statusp.toUpperCase()).concat(","));
 	}
 	
 	private Transaction validateUpdate(TransactionRequest transaction) throws ExceptionTransaction {
